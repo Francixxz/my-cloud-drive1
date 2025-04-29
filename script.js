@@ -1,18 +1,12 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
-}
-header {
-    background: #007bff;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-main {
-    margin-top: 20px;
-}
-#fileList {
-    margin-top: 20px;
-}
+document.getElementById('uploadButton').addEventListener('click', function() {
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+    fileList.innerHTML = ''; // Clear previous file list
+
+    for (let i = 0; i < fileInput.files.length; i++) {
+        const file = fileInput.files[i];
+        const listItem = document.createElement('div');
+        listItem.textContent = file.name;
+        fileList.appendChild(listItem);
+    }
+});
